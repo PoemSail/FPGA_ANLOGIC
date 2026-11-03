@@ -1,0 +1,42 @@
+# User confirmed Bank2 and both sensor HIGH levels3.3V in this chat.
+# New enabled-sensor/matrix candidate; old physical results are not inherited.
+# User-confirmed location update: 2026-10-27. Historical filename retained.
+# Active SD/pir/light locations below come from the user wiring instruction.
+# Clock, board keys, LED and HDMI assignments are preserved.
+# SD IOSTANDARD/pull settings are inherited, not a new-bank voltage measurement.
+# Sensor locations only: output levels/IOSTANDARD require electrical confirmation.
+# Selected top enables PIR_PIN_VALID=1 and LIGHT_POLARITY_VALID=1.
+# Selected top includes the registered 4x4 matrix keypad scan ports.
+# Prior timing/bitstream results do not validate these changed pin locations.
+set_pin_assignment { clk_25m } { LOCATION = H3; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { rst_n } { LOCATION = B1; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_n[0] } { LOCATION = C5; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_n[1] } { LOCATION = E4; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_n[2] } { LOCATION = F4; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { sd_clk } { LOCATION = N9; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { sd_cmd } { LOCATION = L13; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { sd_dat[0] } { LOCATION = T13; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { sd_dat[1] } { LOCATION = R9; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { sd_dat[2] } { LOCATION = J12; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { sd_dat[3] } { LOCATION = K14; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { led_n[0] } { LOCATION = L7; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { led_n[1] } { LOCATION = R7; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { led_n[2] } { LOCATION = D6; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { led_n[3] } { LOCATION = E6; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { hdmi_data_p[0] } { LOCATION = L16; IOSTANDARD = LVDS33; }
+set_pin_assignment { hdmi_data_p[1] } { LOCATION = N14; IOSTANDARD = LVDS33; }
+set_pin_assignment { hdmi_data_p[2] } { LOCATION = P16; IOSTANDARD = LVDS33; }
+set_pin_assignment { hdmi_clock_p } { LOCATION = K15; IOSTANDARD = LVDS33; }
+
+# Sensor location bindings; enabling their existing logic is a separate RTL change.
+set_pin_assignment { pir_async } { LOCATION = C11; IOSTANDARD = LVCMOS33; PULLTYPE = PULLDOWN; }
+set_pin_assignment { light_async } { LOCATION = C15; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+
+set_pin_assignment { keypad_rows_n[0] } { LOCATION = E12; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { keypad_rows_n[1] } { LOCATION = E10; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { keypad_rows_n[2] } { LOCATION = C10; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { keypad_rows_n[3] } { LOCATION = F7; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { keypad_cols_n[0] } { LOCATION = F6; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { keypad_cols_n[1] } { LOCATION = E8; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { keypad_cols_n[2] } { LOCATION = D9; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { keypad_cols_n[3] } { LOCATION = B16; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }

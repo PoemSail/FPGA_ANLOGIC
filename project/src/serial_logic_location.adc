@@ -1,0 +1,22 @@
+# Logic placement only. Board ADC remains separately registered and unchanged.
+# Gate AL_MAP_SEQ meta_reg is mapped to serial-clock MSlice in parent route.
+# meta repacked LUT5 with two loadLOCs; use observedLSlice x12y10z3.
+# Re-place from gate; previous occupant is not fixed. No relocation of a routed DB.
+# Native manual TD_User_Guide_V6.2.pdf PDF page223 documents this exact syntax.
+set_inst_assignment {station/station/hdmi/serializer/meta_reg} {location = x12y10z3;}
+
+# Target2negative reset recovery endpoints from actual retained parent report.
+# Sites x10y32z2/z3 observed EG_PHY_LSLICE, near source srst_dup_4 x9y32z3.
+# Re-place unchanged gate; do not relocate or constrain unrelated packed aliases.
+set_inst_assignment {station/station/hdmi/serializer/lane0_reg[0]} {location = x10y32z2;}
+set_inst_assignment {station/station/hdmi/serializer/lane0_reg[1]} {location = x10y32z3;}
+
+# Measured SDRAM DQ17 output path: valid legalized register, nearer interface.
+set_inst_assignment {station/storage_system/memory/controller/write_data_reg[17]} {location = x27y37z0;}
+
+# Proper-IO routed slow report: text output has a -0.307ns path.
+# Its final NOR LUT (verified AL_MAP_LUT2 a_text_rgb_b[7]_syn_4) lies at
+# x22y23 between upstream x26y6 and destination x21y1, adding 2.496ns net delay.
+# Anchor that one combinational LUT near the observed upstream legal LSlice.
+# No register latency, RTL function, IO binding or SDC change.
+set_inst_assignment {station/station/core/view/a_text_rgb_b[7]_syn_4} {location = x26y6z3;}
